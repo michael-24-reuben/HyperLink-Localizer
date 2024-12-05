@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="root" prefHeight="600.0" prefWidth="900.0" stylesheets="@assets/styleSheet.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.pisces.hyperlocal.HyperController">
+   <children>
+      <MenuBar style="-fx-background-color: #f4f4f4;" VBox.vgrow="NEVER">
+         <menus>
+            <Menu mnemonicParsing="false" style="-fx-background-color: gray;" text="File">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="New" />
+                  <MenuItem mnemonicParsing="false" text="Open…" />
+                  <Menu mnemonicParsing="false" text="Open Recent" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem mnemonicParsing="false" text="Save" />
+                  <MenuItem mnemonicParsing="false" text="Save As…" />
+                  <MenuItem mnemonicParsing="false" text="Revert" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Preferences…" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Quit" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" style="-fx-background-color: gray;" text="Edit">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Undo" />
+                  <MenuItem mnemonicParsing="false" text="Redo" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Cut" />
+                  <MenuItem mnemonicParsing="false" text="Copy" />
+                  <MenuItem mnemonicParsing="false" text="Paste" />
+                  <MenuItem mnemonicParsing="false" text="Delete" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Select All" />
+                  <MenuItem mnemonicParsing="false" text="Unselect All" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" style="-fx-background-color: gray;" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <SplitPane fx:id="spp_content" dividerPositions="0.2505567928730512, 0.7505567928730512" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <items>
+            <ScrollPane fx:id="scp_content_left" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxWidth="300.0" minWidth="210.0">
+               <content>
+                  <VBox>
+                     <children>
+                        <Label alignment="CENTER" maxHeight="21.0" prefWidth="-1.0" style="&#10;" text="History" textAlignment="CENTER" wrapText="false">
+                           <font>
+                              <Font name="JetBrains Mono Light" size="15.0" fx:id="x11" />
+                           </font>
+                           <textFill>
+                              <Color red="0.624" green="0.624" blue="0.624" fx:id="x21" />
+                           </textFill>
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Separator prefWidth="200.0" />
+                        <TreeView maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+            <GridPane fx:id="grp_content_center" style="-fx-border-color: transparent;">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="400.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="37.0" vgrow="NEVER" />
+                  <RowConstraints maxHeight="100.3636328831193" minHeight="0.0" prefHeight="100.3636328831193" vgrow="ALWAYS" />
+               </rowConstraints>
+               <children>
+                  <ScrollPane fx:id="scp_upload_pane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: transparent; -fx-background-radius: 6px; -fx-border-radius: 5px;" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                     <content>
+                        <FlowPane fx:id="flp_upload_pane" alignment="TOP_CENTER" hgap="8.0" style="-fx-border-color: transparent; -fx-background-radius: 6px; -fx-border-radius: 5px;" vgap="8.0">
+                           <padding>
+                              <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                           </padding>
+                        </FlowPane>
+                     </content>
+                  </ScrollPane>
+                  <AnchorPane minWidth="37.5273" prefHeight="37.5" prefWidth="442.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
+                     <children>
+                        <ProgressBar fx:id="prb_progress_bar" maxWidth="1.7976931348623157E308" prefHeight="3.0" progress="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <HBox spacing="2.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <children>
+                              <GridPane fx:id="grp_upload" alignment="CENTER" maxHeight="35.0" maxWidth="110.0" minHeight="34.036" minWidth="34.036" style="-fx-background-color: #00a3dd; -fx-background-radius: 4px;">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="40.99998542218181" minWidth="10.0" prefWidth="27.03636428265544" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="63.690901483583175" minWidth="0.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+                                       <image>
+                                          <Image url="@assets/image/upload-file.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label fx:id="lbl_upload_intext" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="60.0" text="Upload" GridPane.columnIndex="1">
+                                       <padding>
+                                          <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                       </padding>
+                                       <font>
+                                          <Font name="JetBrains Mono SemiBold" size="12.218181610107422" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="2.0" left="4.0" right="4.0" top="2.0" />
+                                 </padding>
+                              </GridPane>
+                              <Pane maxWidth="1.7976931348623157E308" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                              <GridPane fx:id="grp_download" maxHeight="35.0" maxWidth="110.0" minHeight="34.036" minWidth="34.036" style="-fx-background-color: #00a3dd; -fx-background-radius: 4px;">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="40.99998542218181" minWidth="10.0" prefWidth="27.03636428265544" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="63.690901483583175" minWidth="0.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+                                       <image>
+                                          <Image url="@assets/image/download-file.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label fx:id="lbl_download_intext" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Download" GridPane.columnIndex="1">
+                                       <padding>
+                                          <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                       </padding>
+                                       <font>
+                                          <Font name="JetBrains Mono SemiBold" size="12.218181610107422" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="2.0" left="4.0" right="4.0" top="2.0" />
+                                 </padding>
+                              </GridPane>
+                           </children>
+                           <padding>
+                              <Insets left="2.0" right="2.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <padding>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                     </padding>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+            <ScrollPane fx:id="scp_content_right" fitToHeight="true" fitToWidth="true" maxWidth="300.0" minWidth="210.0">
+               <content>
+                  <VBox>
+                     <children>
+                        <Label alignment="CENTER" maxHeight="21.0" style="&#10;" text="Details" textAlignment="CENTER" wrapText="false">
+                           <font>
+                              <Font name="JetBrains Mono Regular" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                           <textFill>
+                              <Color red="0.624" green="0.624" blue="0.624" fx:id="x2" />
+                           </textFill>
+                        </Label>
+                        <Separator prefWidth="200.0" />
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="221.0" spacing="8.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <GridPane style="-fx-border-width: 1px 0 1px 0; -fx-border-color: gray;">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="185.01818989903492" />
+                                  <ColumnConstraints hgrow="NEVER" maxWidth="48.0" minWidth="10.0" prefWidth="40.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="25.0" vgrow="NEVER" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label maxWidth="1.7976931348623157E308" text="Field Title" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                                       <GridPane.margin>
+                                          <Insets />
+                                       </GridPane.margin>
+                                       <font>
+                                          <Font name="Cambria" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField maxWidth="1.7976931348623157E308" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                                    <Button mnemonicParsing="false" prefHeight="24.0" prefWidth="24.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                                 </children>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </GridPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+         </items>
+      </SplitPane>
+      <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
+         <children>
+            <Label maxWidth="-1.0" prefWidth="450.0" text="Left status" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="11.0" fx:id="x3" />
+               </font>
+               <textFill>
+                  <Color red="0.625" green="0.625" blue="0.625" fx:id="x4" />
+               </textFill>
+               <padding>
+                  <Insets left="5.0" right="5.0" />
+               </padding>
+            </Label>
+            <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
+            <Label alignment="CENTER_RIGHT" font="$x3" maxWidth="-1.0" prefWidth="221.0" text="Right status" textFill="$x4" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets left="5.0" right="5.0" />
+               </padding></Label>
+         </children>
+         <padding>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>

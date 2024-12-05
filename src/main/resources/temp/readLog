@@ -1,0 +1,78 @@
+Java  Message:Cannot  invoke  "fx.pisces.hyperlocal.assets.graphics.flp_upload_pane.FilePaneController.setContentDetails(String)"  because  "controller"  is  null
+
+    private void InitializeMouseEvents(File file, FilePaneController controller) {
+        /*controller.grp_content_pane.setOnMousePressed(event -> {
+            popupController.setContext(String.valueOf(1));
+            popupController.setContentImage(controller.getContentImage());
+
+            double[] offset = showPopupAtCenter(popupFile, controller.grp_content_pane, -9, -15);
+            dragOffset[0] = offset[0];
+            dragOffset[1] = offset[1];
+            System.out.printf("\033[1;32mPress Detected\033[0m: %s%n", controller.grp_content_pane.getId());
+        });
+
+        controller.grp_content_pane.setOnMouseDragged(event -> {
+            if (popupFile.isShowing()) {
+                controller.enableDraggableFiles(List.of(Objects.requireNonNull(DragboardContents.getContent(file)).getLocalFile()));
+
+                System.out.printf("\033[1;32mDrag Detected\033[0m: %s%n", controller.grp_content_pane);
+                // Update popup position dynamically
+                double offsetX = event.getScreenX() - dragOffset[0];
+                double offsetY = event.getScreenY() - dragOffset[1];
+                popupFile.setX(popupFile.getX() + offsetX);
+                popupFile.setY(popupFile.getY() + offsetY);
+                dragOffset[0] = event.getScreenX();
+                dragOffset[1] = event.getScreenY();
+            }
+        });*/
+        controller.grp_content_pane.setOnMousePressed(event -> {
+            popupController.setContext(String.valueOf(1));
+            popupController.setContentImage(controller.getContentImage());
+
+            // Show popup at the center of the node
+            double[] offset = showPopupAtCenter(popupFile, controller.grp_content_pane, -9, -15);
+            dragOffset[0] = event.getScreenX() - offset[0];
+            dragOffset[1] = event.getScreenY() - offset[1];
+
+//            controller.stp_root$ofDrag.setVisible(true);
+//            controller.stp_root$ofDrag.setManaged(true);
+//            controller.stp_root$ofDefault.setVisible(false);
+//            controller.stp_root$ofDefault.setManaged(false);
+            System.out.printf("\033[1;32mPress Detected\033[0m: %s%n", controller.grp_content_pane.getId());
+        });
+
+        controller.grp_content_pane.setOnMouseDragged(event -> {
+            if (popupFile.isShowing()) {
+                System.out.printf("\033[1;32mDrag Detected\033[0m: %s%n", controller.grp_content_pane);
+
+                // Update popup position dynamically
+                popupFile.setX(event.getScreenX() - dragOffset[0]);
+                popupFile.setY(event.getScreenY() - dragOffset[1]);
+            }
+        });
+
+        controller.grp_content_pane.setOnDragDetected(event -> {
+            Dragboard dragboard = controller.grp_content_pane.startDragAndDrop(TransferMode.COPY);
+            ClipboardContent content = new ClipboardContent();
+
+            // Attach file path or data to the dragboard
+            content.putString(Objects.requireNonNull(DragboardContents.getContent(file)).getLocalFile().toString());
+            dragboard.setContent(content);
+
+            dragboard.setDragView(controller.grp_content_pane.snapshot(null, null));
+
+            popupFile.hide();
+            event.consume();
+        });
+
+
+        controller.grp_content_pane.setOnMouseReleased(event -> {
+            controller.stp_root$ofDrag.setVisible(false);
+            controller.stp_root$ofDrag.setManaged(false);
+            controller.stp_root$ofDefault.setVisible(true);
+            controller.stp_root$ofDefault.setManaged(true);
+            popupFile.hide();
+//            RemoveNodePresence(controller);
+            System.out.println("Drag is done...\n");
+        });
+    }

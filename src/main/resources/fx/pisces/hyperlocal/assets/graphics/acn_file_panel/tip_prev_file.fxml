@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+
+<TitledPane fx:id="tip_prev_file" animated="false" prefWidth="90.0" text="File Name 1" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.pisces.hyperlocal.assets.graphics.acn_file_panel.EventPaneController">
+   <content>
+      <VBox fx:id="vbx_href_container" />
+   </content>
+   <graphic>
+      <ImageView fx:id="img_up_icon" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+      </ImageView>
+   </graphic>
+</TitledPane>

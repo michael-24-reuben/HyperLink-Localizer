@@ -1,0 +1,10 @@
+/*#f4f4f4*/
+
+#btn_content_remove {
+    -fx-background-color: #424242;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+}
+#btn_content_remove:hover {
+    -fx-background-color: #c94f4f;
+}

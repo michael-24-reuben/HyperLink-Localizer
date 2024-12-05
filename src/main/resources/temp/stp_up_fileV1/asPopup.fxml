@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="stp_root$ofDefault" maxHeight="-Infinity" prefHeight="128.0" prefWidth="135.28" style="-fx-background-radius: 10px; -fx-border-radius: 6px; -fx-border-width: 4px; -fx-border-color: gray;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.pisces.hyperlocal.assets.graphics.stp_up_file.FilePaneController">
+   <children>
+      <StackPane style="-fx-background-radius: 10px; -fx-border-radius: 6px; -fx-border-width: 4px;">
+         <children>
+            <ImageView fx:id="img_content_image" fitHeight="52.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <image>
+                  <Image url="@../../../image/bulk-document.png" />
+               </image>
+               <effect>
+                  <DropShadow height="5.0" radius="2.0" width="5.0">
+                     <color>
+                        <Color opacity="0.5789473056793213" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </ImageView>
+         </children>
+         <padding>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+         </padding>
+         <effect>
+            <BoxBlur iterations="2" />
+         </effect>
+      </StackPane>
+      <Label fx:id="lbl_content_details" alignment="BOTTOM_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" style="-fx-background-color: transparent;" text="Label" textFill="#363636" textOverrun="LEADING_ELLIPSIS" StackPane.alignment="BOTTOM_CENTER">
+         <font>
+            <Font name="JetBrains Mono Light" size="11.0" />
+         </font>
+      </Label>
+   </children>
+   <cursor>
+      <Cursor fx:constant="DEFAULT" />
+   </cursor>
+   <padding>
+      <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+   </padding>
+   <effect>
+      <DropShadow />
+   </effect>
+</StackPane>
